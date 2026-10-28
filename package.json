@@ -1,0 +1,32 @@
+{
+  "name": "folio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FOLIO — research paper and literature manager (MERN)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "install:all": "npm install && npm --prefix client install",
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev:server\" \"npm --prefix client run dev\"",
+    "dev:server": "node --watch --env-file-if-exists=server/.env server/src/server.js",
+    "start": "node --env-file-if-exists=server/.env server/src/server.js",
+    "seed": "node --env-file-if-exists=server/.env server/src/seed.js",
+    "build": "npm --prefix client run build"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.0",
+    "multer": "^2.0.1",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
